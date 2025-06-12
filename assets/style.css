@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?ygl8ht');
+  src:  url('fonts/icomoon.eot?ygl8ht#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ygl8ht') format('truetype'),
+    url('fonts/icomoon.woff?ygl8ht') format('woff'),
+    url('fonts/icomoon.svg?ygl8ht#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-up:before {
+  content: "\e90a";
+}
+.icon-phone:before {
+  content: "\e900";
+}
+.icon-investment_icon:before {
+  content: "\e901";
+}
+.icon-bet_casino_chip_exchange_gamble_icon:before {
+  content: "\e902";
+}
+.icon-coin_coins_financial_money_icon:before {
+  content: "\e903";
+}
+.icon-close:before {
+  content: "\e904";
+}
+.icon-facebook:before {
+  content: "\e905";
+}
+.icon-instagram:before {
+  content: "\e906";
+}
+.icon-mail:before {
+  content: "\e907";
+}
+.icon-menu:before {
+  content: "\e908";
+}
+.icon-whatsapp:before {
+  content: "\e909";
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Denúncia Enviada</title>
+
+  <link rel="stylesheet" href="stylesucesso.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      
+      <h2><i class="bi bi-check-circle-fill"></i> Sua denúncia foi registrada com sucesso!</h2>
+      <p>Obrigado por contribuir com a melhoria da cidade.</p>
+      <p><strong>Número de Protocolo:</strong> <span id="protocolo"></span></p>
+      <p>Você será notificado por e-mail caso tenha fornecido seus dados de contato.</p>
+      <a href="index.html" class="btn">Voltar ao Início</a>
+    </div>
+  </div>
+
+  <script>
+    const protocolo = localStorage.getItem("protocoloAtual");
+    document.getElementById("protocolo").textContent = protocolo?.padStart(3, '0') ?? "N/A";
+  </script>
+</body>
+</html>

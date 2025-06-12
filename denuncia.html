@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova Denúncia</title>
+  <link rel="stylesheet" href="styledenuncia.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Nova Denúncia</h1>
+    <p>Relate problemas urbanos para que possamos resolver juntos.</p>
+    
+    <form id="denunciaForm">
+      <label for="titulo">Título da Denúncia</label>
+      <input type="text" id="titulo" name="titulo" placeholder="Ex: Buraco na rua, lixo acumulado..." required />
+      
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">Selecione</option>
+        <option value="infraestrutura">Infraestrutura</option>
+        <option value="iluminação">Iluminação</option>
+        <option value="limpeza">Limpeza</option>
+        <option value="outros">Outros</option>
+      </select>
+      
+      <label for="descricao">Descrição Detalhada</label>
+      <textarea id="descricao" name="descricao" placeholder="Descreva o problema em detalhes, como está afetando a comunidade e há quanto tempo existe..." rows="4" required></textarea>
+      
+      <label for="endereco">Endereço/Localização</label>
+      <input type="text" id="endereco" name="endereco" placeholder="Ex: Rua das Flores, 123, Centro" required />
+      
+      <label for="fotos">Fotos (Máximo 5)</label>
+      <fieldset id="caixafoto">
+          <input type="file" id="fotos" name="fotos" multiple accept="image/*" />
+      </fieldset>
+      
+      <fieldset id="caixaanonima">
+        <div class="anonima">
+          <label for="anonima">
+            <input type="checkbox" id="anonima" name="anonima" />
+            Fazer denúncia anônima
+          </label>
+          <p> Sua identidade não será revelada, mas você não receberá atualizações por contato direto.</p>
+        </div>
+      </fieldset>
+      
+      
+      <fieldset id="contato">
+        <legend><strong>Dados para Contato</strong></legend>
+        <input type="text" id="nome" name="nome" placeholder="Nome Completo" />
+        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
+        <input type="email" id="email" name="email" placeholder="seu@email.com" />
+      </fieldset>
+      
+      <fieldset>
+        <legend><strong>Atenção</strong></legend>
+        <p class="importante">
+          <ul>
+            <li> Denúncias falsas podem ser penalizadas por lei.</li>
+            <li> Equipe técnica para verificação e solução;</li>
+            <li> Solicitações legais, caso necessário.</li>
+            <li> Para emergências, ligue 190 (Polícia) ou 193 (Bombeiros).</li>
+          </ul>
+        </p>
+  
+      </fieldset>
+      
+      <button type="submit">Enviar Denúncia</button>
+    </form>
+  </div>
+  <script src="scriptdenuncia.js"></script>
+</body>
+</html>
