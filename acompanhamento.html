@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acompanhar Denúncias</title>
+  <link rel="stylesheet" href="styleacompanhamento.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Acompanhar Denúncias</h1>
+    <p>Visualize e acompanhe o status de todas as denúncias da cidade</p>
+
+ 
+
+    <div class="resumo">
+      <div><strong id="total">0</strong><br>Total</div>
+      <div><strong id="abertas">0</strong><br>Abertas</div>
+      <div><strong id="andamento">0</strong><br>Andamento</div>
+      <div><strong id="resolvidas">0</strong><br>Resolvidas</div>
+    </div>
+    
+    <div class="barra-acoes">
+      <input type="text" id="busca" placeholder="Buscar por protocolo..." />
+      <select id="filtro">
+        <option value="todas">Todas</option>
+        <option value="Aberta">Abertas</option>
+        <option value="Em Andamento">Em Andamento</option>
+        <option value="Resolvida">Resolvidas</option>
+      </select>
+      <a href="index.html" class="botao-voltar">Nova Denúncia</a>
+    </div>
+    
+    <div id="listaDenuncias" class="lista-denuncias">
+      <!-- As denúncias serão inseridas aqui via script -->
+    </div>
+  </div>
+
+  <script src="scriptacompanhamento.js"></script>
+</body>
+</html>
