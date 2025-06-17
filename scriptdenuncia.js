@@ -39,9 +39,23 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("ultimoProtocolo", numeroProtocolo);
     localStorage.setItem("protocoloAtual", protocoloFormatado);
 
-    // Você pode adicionar lógica de envio (ex: via fetch) aqui, se necessário
+    // Enviar os dados para o backend com fetch
+    fetch("/denuncias", {
+      method: "POST",
+      body: formData
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("Erro ao enviar denúncia");
+      return res.json();
+    })
+    .then(() => {
+      // Redireciona para a página de confirmação
+      window.location.href = "sucesso.html";
+    })
+    .catch(err => {
+      alert("Falha no envio: " + err.message);
+    });
 
-    // Redireciona para a página de confirmação
-    window.location.href = "sucesso.html";
+    // window.location.href = "sucesso.html";
   });
 });
