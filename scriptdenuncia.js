@@ -21,13 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     const isAnonima = checkboxAnonima.checked;
 
+    // Campos renomeados para bater com o DTO
+    let nomeUsuario = formData.get("nome");
+    let telefoneUsuario = formData.get("telefone");
+    let email = formData.get("email");
+
     if (isAnonima) {
-      formData.set("nome", "");
-      formData.set("telefone", "");
-      formData.set("email", "");
+      nomeUsuario = "";
+      telefoneUsuario = "";
+      email = "";
     }
 
-    // Controle do número de protocolo (001 a 500)
+    // Geração do número de protocolo (simulado no localStorage)
     let numeroProtocolo = parseInt(localStorage.getItem("ultimoProtocolo") || "0", 10);
     if (numeroProtocolo >= 500) {
       alert("Limite de denúncias atingido (500).");
@@ -39,9 +44,41 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("ultimoProtocolo", numeroProtocolo);
     localStorage.setItem("protocoloAtual", protocoloFormatado);
 
-    // Você pode adicionar lógica de envio (ex: via fetch) aqui, se necessário
+    // Montar objeto para envio
+    const denunciaData = {
+      nomeUsuario,
+      telefoneUsuario,
+      email,
+      tituloDenuncia: formData.get("titulo"),
+      categoriaDenuncia: formData.get("categoria"),
+      descricaoDenuncia: formData.get("descricao"),
+      enderecoDenuncia: formData.get("endereco"),
+      denunciaAnonima: isAnonima
+    };
 
-    // Redireciona para a página de confirmação
-    window.location.href = "sucesso.html";
+    // Enviar via fetch para o backend
+    fetch("http://localhost:8080/denuncias", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(denunciaData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        return response.text().then(text => {
+          throw new Error(`Erro ${response.status}: ${text}`);
+        });
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Denúncia registrada com sucesso:", data);
+      window.location.href = "sucesso.html";
+    })
+    .catch(error => {
+      console.error("Erro ao registrar denúncia:", error);
+      alert("Erro ao enviar denúncia. Verifique os dados e tente novamente.");
+    });
   });
 });
