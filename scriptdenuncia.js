@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("denunciaForm");
   const checkboxAnonima = document.getElementById("anonima");
   const contatoSection = document.getElementById("contato");
-  const fotosInput = document.getElementById("fotos");
 
   // Mostrar ou esconder os campos de contato com base no checkbox
   checkboxAnonima.addEventListener("change", () => {
@@ -11,12 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    const fotos = fotosInput.files;
-    if (fotos.length > 5) {
-      alert("Você só pode enviar no máximo 5 fotos.");
-      return;
-    }
 
     const formData = new FormData(form);
     const isAnonima = checkboxAnonima.checked;
@@ -27,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let email = formData.get("email");
 
     if (isAnonima) {
-      nomeUsuario = "";
-      telefoneUsuario = "";
-      email = "";
+      nomeUsuario = "Anônimo anonimo";
+      telefoneUsuario = "71900000000";
+      email = "anonimo@gmail.com";
     }
 
     // Geração do número de protocolo (simulado no localStorage)
